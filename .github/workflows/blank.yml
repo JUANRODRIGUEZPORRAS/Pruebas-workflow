@@ -14,11 +14,12 @@ jobs:
       DB_NAME_VAR: ${{vars.DB_NAME_VAR}}
 
     steps:
-    
-    - name: Ejecutar echo
-      id: primero
-      run: echo "var=Hola Mundo" >> "$GITHUB_OUTPUT"
-    - name: Use var
-      env:
-        var: ${{steps.primero.outputs.var}}
-      run: echo "$var"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - id: obtener_paso
+        run: |
+          echo "paso_actual=HOLA_MUNDO" >> $GITHUB_OUTPUT
+    outputs:
+      paso_actual: ${{ steps.obtener_paso.outputs.paso_actual }}
+      run: echo "$paso_actual"
+      
