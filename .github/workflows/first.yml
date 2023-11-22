@@ -10,6 +10,8 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          run: echo "var=Hola Mundo Antiguo" >> "$GITHUB_ENV"
+          run: |
+          echo "var=Hola Mundo Antiguo" >> $GITHUB_ENV
+          echo "var=Hola Mundo Antiguo" >> $GITHUB_OUTPUT
           event-type: my-event
-          client-payload: '{"var": "${{ var }}", "test": "test message"}'
+          client-payload: '{"ref": "${{ var }}", "test": "test message"}'
