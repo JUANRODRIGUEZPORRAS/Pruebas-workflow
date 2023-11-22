@@ -17,10 +17,9 @@ jobs:
       run: |
         echo "var=Hola Mundo Antiguo" >> "$GITHUB_ENV"
         echo "var=Hola Mundo Nuevo" >> "$GITHUB_OUTPUT"
-    - name: Use var
-      env: 
-        var2: ${{steps.primero.env.var}}
-      run: echo "$var2"
+        echo "var2=Hola Mundo Nuevo 2" >> "$GITHUB_OUTPUT"
+    - name: Use var 
+      run: echo "$var"
 
   prueba2:
     runs-on: Ubuntu-latest
@@ -28,10 +27,10 @@ jobs:
     
     steps:
     - name: Ejecutar de nuevo la var
-      run: echo "$var"
+      run: echo "$var2"
 
     - name: recuperar var
       env:
         name: variable
-        url: ${{ needs.steps.primero.outputs.var }}
-      run: echo "$url"
+        run: echo "${{ needs.steps.primero.outputs.var }}"
+      
