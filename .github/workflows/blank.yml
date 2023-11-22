@@ -21,5 +21,4 @@ jobs:
     - name: Use var
       env:
         var: ${{steps.primero.outputs.var}}
-    - name: ver var
       run: echo "$var"
