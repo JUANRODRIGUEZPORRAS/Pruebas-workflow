@@ -6,7 +6,7 @@ jobs:
   myEvent:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: JUANRODRIGUEZPORRAS/Pruebas-workflow@main
         with:
           ref: ${{ github.event.client_payload.ref }}
           
