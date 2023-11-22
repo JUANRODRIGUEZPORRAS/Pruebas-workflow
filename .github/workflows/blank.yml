@@ -15,13 +15,7 @@ jobs:
 
     steps:
     - name: Ejecutar echo
-      run: echo "${{secrets.DB_NAME}} \n" 
-
-    - name: Ejecutar echo var
-      run: echo "${{vars.DB_NAME_VAR}} \n"
-
-    - name: Ejecutar cambio var
-      run: echo "action_state=yellow" >> "$DB_NAME_VAR"
-
-    - name: Ejecutar echo de cambio var
-      run: echo "${{vars.DB_NAME_VAR}} \n"
+      run: echo "action_state=yellow" >> "$GITHUB_ENV"
+    
+    - name: Use the value
+      run:  echo "$action_state"
