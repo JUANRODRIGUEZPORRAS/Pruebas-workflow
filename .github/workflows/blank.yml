@@ -15,11 +15,11 @@ jobs:
     - name: Ejecutar echo
       id: primero
       run: |
-        echo "var=Hola Mundo Antigup" >> "$GITHUB_ENV"
+        echo "var=Hola Mundo Antiguo" >> "$GITHUB_ENV"
         echo "var=Hola Mundo Nuevo" >> "$GITHUB_OUTPUT"
     - name: Use var
       env: 
-        var2: ${{steps.primero.outputs.var}}
+        var2: ${{steps.primero.env.var}}
       run: echo "$var2"
 
   prueba2:
@@ -33,5 +33,5 @@ jobs:
     - name: recuperar var
       env:
         name: variable
-        url: ${{needs.steps.primero.outputs.var}}
+        url: ${{ needs.steps.primero.outputs.var }}
       run: echo "$url"
