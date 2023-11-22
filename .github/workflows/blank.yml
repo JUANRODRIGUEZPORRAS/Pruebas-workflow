@@ -4,47 +4,14 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - fix-ansible
+    - main
 
 jobs:
-  ansible:
+  prueba:
     runs-on: self-hosted
     env:
       DB_NAME: ${{ secrets.DB_NAME }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DB_USER: ${{ secrets.DB_USER }}
-      POSTGRES_PASS: ${{ secrets.POSTGRES_PASS }}
-      BECOME_PASS: ${{ secrets.BECOME_PASS }}
-      USER_ANSIBLE: ${{ secrets.USER_ANSIBLE }}
 
     steps:
-    - name: Checkout Código
-      uses: actions/checkout@v3
-
-    - name: Configurar Ansible
-      run: |
-        sudo apt update
-        sudo apt install -y ansible
-        sudo apt install -y sshpass
-      continue-on-error: false
-
-    - name: Generar clave SSH si no existe
-      run: |
-        if [ ! -f ~/.ssh/id_rsa ]; then
-          ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
-        fi
-
-    - name: Copiar clave pública al servidor remoto
-      run: |
-        chmod 600 ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa.pub
-        SSHPASS="${{ secrets.VM_PASS }}" sshpass -e ssh-copy-id -o StrictHostKeyChecking=no adminuser@10.1.1.7
-        SSHPASS="${{ secrets.VM_PASS }}" sshpass -e ssh-copy-id -o StrictHostKeyChecking=no adminuser@10.1.1.8
-
-    - name: Ejecutar Playbook de Ansible
-      run: "ansible-playbook ./ansible/config.yml -i ./ansible/hosts.ini \n"
-      continue-on-error: false
-
-    - name: Ejecutar Playbook de Ansible
-      run: "ansible-playbook ./ansible/database.yml -i ./ansible/hosts.ini \n"
-      continue-on-error: false
+    - name: Ejecutar echo
+      run: "echo ${{secrets.DB_NAME}} \n"    
