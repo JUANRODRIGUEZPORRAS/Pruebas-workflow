@@ -30,7 +30,5 @@ jobs:
       run: echo "$var2"
 
     - name: recuperar var
-      env:
-        name: variable
-        run: echo "${{ needs.steps.primero.outputs.var }}"
+      run: echo "${{ needs.steps.primero.outputs.var }}"
       
