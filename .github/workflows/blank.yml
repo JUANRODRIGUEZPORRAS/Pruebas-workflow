@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: Ejecutar echo
-      run: echo "yellow" >> "$FIRST"
+      run: echo "yellow" >> $FIRST
     - name: Use var
       run: echo "$FIRST"
       
