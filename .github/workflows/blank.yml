@@ -19,3 +19,6 @@ jobs:
     
     - name: Use the value
       run:  echo "$action_state"
+
+    - name: Use var
+      run: echo "${{ GITHUB_ENV}}"
