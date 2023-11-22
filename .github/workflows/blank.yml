@@ -18,7 +18,9 @@ jobs:
         echo "var=Hola Mundo Antigup" >> "$GITHUB_ENV"
         echo "var=Hola Mundo Nuevo" >> "$GITHUB_OUTPUT"
     - name: Use var
-      run: echo "$var"
+      env: 
+        var2: ${{steps.primero.outputs.var}}
+      run: echo "$var2"
 
   prueba2:
     runs-on: Ubuntu-latest
