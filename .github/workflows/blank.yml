@@ -19,8 +19,10 @@ jobs:
         var: ${{steps.primero.outputs.var}}
       run: echo "$var"
 
-    paso2:
-
+  prueba2:
+    runs-on: Ubuntu-latest
+    
+    steps:
     - name: Ejecutar de nuevo la var
       run: echo "&var"
 
