@@ -11,11 +11,12 @@ jobs:
     runs-on: Ubuntu-latest
     env:
       DB_NAME: ${{ secrets.DB_NAME }}
+      DB_NAME_VAR: ${{vars.DB_NAME_VAR}}
 
     steps:
     - name: Ejecutar echo
-      run: "echo ${{secrets.DB_NAME}} \n" 
+      run: echo "${{secrets.DB_NAME}} \n" 
 
     - name: Ejecutar echo var
-      run: "echo ${{vars.DB_NAME_VAR}} \n"
+      run: echo "${{vars.DB_NAME_VAR}} \n"
       
