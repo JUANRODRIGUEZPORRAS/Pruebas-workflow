@@ -14,8 +14,12 @@ jobs:
       DB_NAME_VAR: ${{vars.DB_NAME_VAR}}
 
     steps:
+    
     - name: Ejecutar echo
-      run: echo "yellow" >> $FIRST
+      id: primero
+      run: echo "var=Hola Mundo" >> "$GITHUB_OUTPUT"
     - name: Use var
-      run: echo "$FIRST"
-      
+      env:
+        var: ${{steps.primero.outputs.var}}
+    - name: ver var
+      run: echo "$var"
