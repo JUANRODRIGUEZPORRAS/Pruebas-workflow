@@ -1,4 +1,4 @@
-name: Configuracion con Ansible
+name: Configuracion primeros workflows
 
 on:
   workflow_dispatch:
