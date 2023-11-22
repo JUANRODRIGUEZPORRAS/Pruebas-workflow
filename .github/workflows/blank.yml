@@ -9,7 +9,7 @@ on:
 jobs:
   prueba:
     runs-on: Ubuntu-latest
-    
+
     steps:
     - name: Ejecutar echo
       id: primero
@@ -21,6 +21,7 @@ jobs:
 
   prueba2:
     runs-on: Ubuntu-latest
+    needs: prueba
     
     steps:
     - name: Ejecutar de nuevo la var
@@ -28,5 +29,6 @@ jobs:
 
     - name: recuperar var
       env:
-        var: ${{prueba.steps.primero.outputs.var}}
+        name: variable
+        url: ${{steps.primero.outputs.var}}
       run: echo "$var"
