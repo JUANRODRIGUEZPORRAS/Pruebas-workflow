@@ -16,8 +16,8 @@ jobs:
       id: primero
       run: |
         echo "var=Hola Mundo Antiguo" >> "$GITHUB_ENV"
-        echo "var=Hola Mundo Nuevo" >> "$GITHUB_OUTPUT"
-        echo "var2=Hola Mundo Nuevo 2" >> "$GITHUB_OUTPUT"
+        echo "var=Hola Mundo Nuevo" >> $GITHUB_OUTPUT
+        echo "var2=Hola Mundo Nuevo 2" >> $GITHUB_OUTPUT
     - name: Use var 
       run: echo "$var"
 
