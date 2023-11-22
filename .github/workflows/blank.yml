@@ -9,14 +9,14 @@ on:
 jobs:
   prueba:
     runs-on: Ubuntu-latest
-
+    outputs:
+        var: ${{steps.primero.outputs.var}}
     steps:
     - name: Ejecutar echo
       id: primero
       run: echo "var=Hola Mundo" >> "$GITHUB_OUTPUT"
     - name: Use var
-      env:
-        var: ${{steps.primero.outputs.var}}
+     
       run: echo "$var"
 
   prueba2:
