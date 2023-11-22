@@ -24,9 +24,9 @@ jobs:
     
     steps:
     - name: Ejecutar de nuevo la var
-      run: echo "&var"
+      run: echo "$var"
 
     - name: recuperar var
       env:
-        var: ${{steps.primero.outputs.var}}
+        var: ${{prueba.steps.primero.outputs.var}}
       run: echo "$var"
