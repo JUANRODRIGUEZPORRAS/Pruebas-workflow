@@ -14,9 +14,10 @@ jobs:
     steps:
     - name: Ejecutar echo
       id: primero
-      run: echo "var=Hola Mundo" >> "$GITHUB_OUTPUT"
+      run: |
+        echo "var=Hola Mundo Antigup" >> "$GITHUB_ENV"
+        echo "var=Hola Mundo Nuevo" >> "$GITHUB_OUTPUT"
     - name: Use var
-     
       run: echo "$var"
 
   prueba2:
