@@ -8,7 +8,7 @@ on:
 
 jobs:
   prueba:
-    runs-on: Ubuntu:latest
+    runs-on: Ubuntu-latest
     env:
       DB_NAME: ${{ secrets.DB_NAME }}
 
@@ -17,4 +17,5 @@ jobs:
       run: "echo ${{secrets.DB_NAME}} \n" 
 
     - name: Ejecutar echo var
-      run: "echo ${{secrets.DB_NAME_VAR}} \n"
+      run: "echo ${{vars.DB_NAME_VAR}} \n"
+      
