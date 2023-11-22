@@ -31,4 +31,4 @@ jobs:
       env:
         name: variable
         url: ${{needs.steps.primero.outputs.var}}
-      run: echo "$var"
+      run: echo "$url"
