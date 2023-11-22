@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
-        uses: JUANRODRIGUEZPORRAS/Pruebas-workflow@v1
+        uses: JUANRODRIGUEZPORRAS/Pruebas-workflow@v3
         with:
           token: ${{ secrets.PAT }}
           event-type: my-event
