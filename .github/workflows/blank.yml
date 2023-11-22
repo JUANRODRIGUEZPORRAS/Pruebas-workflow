@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: Ejecutar echo
-      run: echo "action_state=yellow" >> "$FIRST"
+      run: echo "yellow" >> "$FIRST"
     
     - name: Use the value
       run:  echo "$action_state"
